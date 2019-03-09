@@ -15,9 +15,11 @@
 	  console.log(el.getAttribute("changetext"));
 	  document.getElementById("mytext").setAttribute("value","yayay");
 	  el.addEventListener('trackpadchanged', function () {
-        document.getElementById("mytext").setAttribute("value",this.data.text);
+        document.getElementById("mysky").setAttribute("color","#888888");
       });
-	  
+	   el.addEventListener('triggerdown', function () {
+        document.getElementById("mysky").setAttribute("color","#BBBBBB");
+      });
     
   }
 });
