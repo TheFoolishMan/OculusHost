@@ -7,8 +7,10 @@
 	  
 	
 	<script>
+		var count = 0;
 		function myfunky() {
-  	 document.getElementById("mytext").setAttribute("value",evt.detail.axis[0].toString());
+			count++;
+  	 document.getElementById("mytext").setAttribute("value",count/*evt.detail.axis[0].toString()*/);
 }
 		
   AFRAME.registerComponent('changetext', {
