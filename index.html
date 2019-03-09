@@ -19,11 +19,14 @@ function myfunc() {
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky color="#000000"></a-sky>
 	 
-	  <a-entity oculus-go-controls="hand: left"></a-entity>
+	<!--  <a-entity oculus-go-controls="hand: left"></a-entity>
 <a-entity oculus-go-controls="hand: right"
 			event-set__clicky="_event: triggerdown;  _target: #mycyl; visible: false" > <a-cursor></a-cursor></a-entity>
 	    
-	     
+	     -->
+	    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
 	   
     </a-scene>
   </body>
