@@ -5,25 +5,20 @@
   </head>
   <body>
 	<script>
-  AFRAME.registerComponent('change-color-on-hover', {
-    schema: {
-      color: {default: 'red'}
-    },
+  AFRAME.registerComponent('changeText', {
+  schema: {
+    text: {type: 'string', default: 'Hello, World!'}
+  },
 
-    init: function () {
-      var data = this.data;
-      var el = this.el;  // <a-box>
-      var defaultColor = el.getAttribute('material').color;
-
-      el.addEventListener('mouseenter', function () {
-        el.setAttribute('color', data.color);
+  init: function () {
+	  
+	  this.el.addEventListener('triggerdown', function () {
+        document.getElementById("mytext").setAttribute("value",this.data.text);
       });
-
-      el.addEventListener('mouseleave', function () {
-        el.setAttribute('color', defaultColor);
-      });
-    }
-  });
+	  
+    
+  }
+});
 </script>
     <a-scene>
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"
@@ -44,7 +39,7 @@
 	     -->
 	
 	   
-	    <a-entity oculus-go-controls="hand: right" laser-controls="hand: right" event-set__clicky="_event: triggerdown;  _target: #mycyl; visible:false " ></a-entity>
+	    <a-entity oculus-go-controls="hand: right" laser-controls="hand: right" changeText="text:Mayank bhaiya" event-set__clicky="_event: triggerdown;  _target: #mycyl; visible:false " ></a-entity>
 	    
     </a-scene>
   </body>
