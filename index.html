@@ -7,11 +7,28 @@
 	  
 	
 	<script>
-		var count = 0;
-		function myfunky() {
-			count++;
-  	 document.getElementById("mytext").setAttribute("value",count/*evt.detail.axis[0].toString()*/);
+		var boolval = false;
+		var counter =0;
+		function movecam(val)
+		{
+			counter+= val;
+		}
+		
+		
+		function movecamhandle(val){
+			if(!boolval)
+			{
+				setInterval(movecam(val),1);
+			}
+		}
+		
+		function myfunky(val) {
+			boolval = true;
+			movecamhandle(val);
+  	 document.getElementById("mytext").setAttribute("value",counter/*evt.detail.axis[0].toString()*/);
 }
+		
+		
 		
   AFRAME.registerComponent('changetext', {
   schema: {
@@ -24,7 +41,7 @@
 	  document.getElementById("mytext").setAttribute("value","yayay");
 	  el.addEventListener('axismove', function (evt) {
         document.getElementById("mysky").setAttribute("color","#888888");
-		  myfunky();
+		  myfunky(evt.detail.axis[0]);
 		  console.log(evt.detail.axis[0]);
       });
 	   el.addEventListener('triggerdown', function () {
@@ -61,7 +78,7 @@
 		  event-set__mouseenter="_target: #mysph; visible: false"
                 event-set__leave="_event: mouseleave; _target: #mysph; visible: true" ></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky id="mysky" color="#0FF"></a-sky>
+      <a-sky id="mysky" color="#FFF"></a-sky>
 	    
 	    <a-text id="mytext" value="Hello, World!" color="#000000" position="-1 3.5 -3"></a-text>
 	 
