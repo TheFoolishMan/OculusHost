@@ -16,8 +16,8 @@
 	  document.getElementById("mytext").setAttribute("value","yayay");
 	  el.addEventListener('axismove', function (evt) {
         document.getElementById("mysky").setAttribute("color","#888888");
-		  document.getElementById("mytext").setAttribute("value",evt.detail.toString());
-		  console.log(evt.detail);
+		  document.getElementById("mytext").setAttribute("value",evt.detail.axis[0].toString());
+		  console.log(evt.detail.axis[0]);
       });
 	   el.addEventListener('triggerdown', function () {
         document.getElementById("mysky").setAttribute("color","#BBBBBB");
