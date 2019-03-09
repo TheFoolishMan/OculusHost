@@ -16,7 +16,7 @@
 		{
 			document.getElementById("mysky").setAttribute("color","#888888");
 			console.log(val);
-			counter+= val;
+			counter-= val/100;
 			document.getElementById("mycam").setAttribute("position",counter+" 0 0");
 			 document.getElementById("mytext").setAttribute("value",counter+" "+val/*evt.detail.axis[0].toString()*/);
 		}
